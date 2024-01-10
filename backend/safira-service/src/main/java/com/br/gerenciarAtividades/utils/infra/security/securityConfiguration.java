@@ -25,11 +25,11 @@ public class securityConfiguration{
                 .csrf(csrf -> csrf.disable())
                 .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS)) // Autenticação via token
                 .authorizeHttpRequests(authorize -> authorize
-//                        .requestMatchers(HttpMethod.POST, "/auth").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/auth").permitAll()
 //                        .requestMatchers(HttpMethod.POST, "/users").permitAll()
-                        .anyRequest().permitAll()
+                        .anyRequest().authenticated()
                 )
-//                .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
+                .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();
     }
 

@@ -27,6 +27,8 @@ public class UserService {
     @Autowired
     private List<RegisterValidation> validadores;
 
+
+
     @Autowired
     private UniqueEmailValidation uniqueEmailValidation;
 
